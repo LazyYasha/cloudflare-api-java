@@ -9,13 +9,13 @@ import java.io.IOException;
 import java.util.Objects;
 
 @Slf4j
-public class CloudflareHttpApi {
+public class CloudflareHttpClient {
 
     private static final String BASE_URL = "https://api.cloudflare.com/client/v4";
     private static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
     private final OkHttpClient httpClient;
 
-    public CloudflareHttpApi(CloudflareApiProperties properties) {
+    public CloudflareHttpClient(CloudflareApiProperties properties) {
         this.httpClient = new OkHttpClient().newBuilder()
                 .addInterceptor(chain -> {
                     if (properties.getApiToken() != null) {
