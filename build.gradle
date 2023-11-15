@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.lyasha'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = '17'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation platform('com.squareup.okhttp3:okhttp-bom:4.11.0')
+    implementation 'com.squareup.okhttp3:okhttp'
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
+    implementation 'org.slf4j:slf4j-api:2.0.7'
+    compileOnly 'org.projectlombok:lombok:1.18.26'
+    annotationProcessor 'org.projectlombok:lombok:1.18.26'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.1'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
